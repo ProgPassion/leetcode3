@@ -23,25 +23,25 @@ var str = s.split('');
 var result = '';
 
 for(var i = 0; i < str.length; i++) {
-	  var startWriting = false;
-	  var output = '';
-	  var subStr = t.split('');
+	var startWriting = false;
+	var output = '';
+	var subStr = t.split('');
 
-	  for(var j = i; j < str.length && subStr.length > 0; j++) {	
-		    var charIndex = subStr.indexOf(str[j]);
+	for(var j = i; j < str.length && subStr.length > 0; j++) {	
+		var charIndex = subStr.indexOf(str[j]);
 		
-		    if(charIndex !== -1) {
-			      startWriting = true;
-			      subStr.splice(charIndex, 1);
-		    }
-		    if(startWriting) {
-			      output += str[j];
-		    }
-	  }
+		if(charIndex !== -1) {
+			startWriting = true;
+			subStr.splice(charIndex, 1);
+		}
+		if(startWriting) {
+			output += str[j];
+		}
+	}
 
-	  if(subStr.length === 0 && (result.length > output.length || result == '')){
-		    result = output;
-	  }
+	if(subStr.length === 0 && (result.length > output.length || result == '')){
+		result = output;
+	}
 }
 
 console.log(result);
